@@ -1,0 +1,103 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="#">Restaurants Reviews App</a>
+
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#top-nav">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+
+    </div>
+
+
+    <div id="top-nav" class="navbar-collapse collapse">
+
+        <ul class="nav navbar-nav">
+         
+        </ul>
+
+
+
+        <div class="nav navbar-form pull-right">
+            <div ng-show="!authService.isLoggedIn()">
+                <a href="#loginModal" role="button" class="btn btn-primary" data-toggle="modal">
+                    <i class="glyphicon glyphicon-user glyphicon-white"></i> Sign in</a>
+            </div>
+            <div ng-show="authService.isLoggedIn()">
+                <a class="btn btn-primary" ng-click="authService.logout()">
+                    <i class="glyphicon glyphicon-off glyphicon-white"></i> Sign out</a>
+            </div>
+        </div>
+
+        <div ng-show="authService.isLoggedIn()">
+            <ul class="nav navbar-nav pull-right">
+
+                <li ng-show="authService.isLoggedIn()" class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="glyphicon glyphicon-user glyphicon-white"></i>
+
+                        <b class="caret"></b>
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        <li><a href="#/">User Profile</a></li>
+                        <li><a href="#/">Change password</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+</nav>
+
+
+<div class="container" fade-in>
+
+
+    <div style="padding-top: 2em;">
+	
+            <div class="page-header">
+                <h1>{{resname}}</h1>
+               <!-- <h2>Previews e Resenhas dos livros Best Sellers do New York Times .</h2>-->
+            </div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2">
+      <!--Sidebar content-->
+	   
+
+
+     
+      
+
+    </div>
+    <div class="col-md-10">
+      <!--Body content-->
+
+	  <ul class="phones">
+        <li ng-repeat="nonFiction_ in nonFiction.user_reviews| filter:query | orderBy:orderProp"
+            class="thumbnail phone-listing">
+          <a href="#/nonFiction.user_reviews/{{nonFiction_.review.review_text}}" class="thumb"><img ng-src="{{nonFiction_.review.user.profile_image}}" alt="{{nonFiction_.review.user.profile_url}}"</a>
+          <a href="#/nonFiction.user_reviews/{{nonFiction_.review.review_text}}">{{nonFiction_.review.user.name}}</a>
+          <p>{{nonFiction_.review.review_text}}</p>
+		 
+	
+        </li>
+      </ul>
+
+        
+    </div>
+  </div>
+</div>
+</div>
+
+</div>
+
+
+
+
+	
+	
