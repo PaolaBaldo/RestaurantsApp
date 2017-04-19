@@ -1,7 +1,8 @@
 
+
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-header">
-        <a class="navbar-brand" href="#">The New York Times Best Sellers</a>
+        <a class="navbar-brand" href="#">Restaurants Reviews App</a>
 
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#top-nav">
             <span class="icon-bar"></span>
@@ -15,22 +16,7 @@
     <div id="top-nav" class="navbar-collapse collapse">
 
         <ul class="nav navbar-nav">
-            <li class="dropdown">
-                <a href="#/fictions" class="dropdown-toggle" data-toggle="dropdown">
-                    <i class="glyphicon glyphicon-gift glyphicon-white"></i>
-                    Livros de Ficção
-                    
-                </a>
-				
-            </li>
-			<li class="dropdown">
-                <a href="#/nonFictions"  >
-                    <i class="glyphicon glyphicon-gift glyphicon-white"></i>
-                    Livros de Não Ficção
-                    
-                </a>
-				
-            </li>
+           
         </ul>
 
 
@@ -74,30 +60,37 @@
 
 
     <div style="padding-top: 2em;">
+	 <div class="page-header">
+                <h1>Restaurants near: {{search | uppercase}}</h1>
+               <!-- <h2>Previews e Resenhas dos livros Best Sellers do New York Times .</h2>-->
+            </div>
 <div class="container-fluid">
-  
+  <div class="row">
     <div class="col-md-2">
       <!--Sidebar content-->
 
-  
-      
 
     </div>
     <div class="col-md-10">
       <!--Body content-->
 
       <ul class="phones">
-        <li ng-repeat="fiction in fictions.results | filter:query | orderBy:orderProp"
-            class="thumbnail fiction-listing">
-          <a href="#/fictions/{{fiction.book_details[0].title}}/{{fiction.book_details[0].author}}" class="thumb"><img ng-src="{{fiction.book_details[0].book_image}}" alt="{{fiction.book_details[0].title}}"></a>
-          <a href="#/fictions/{{fiction.book_details[0].title}}/{{fiction.book_details[0].author}}">{{fiction.book_details[0].title}}</a>
-          <p>{{fiction.book_details[0].author}}</p>
+        <li ng-repeat="restaurant in restaurants.restaurants| filter:query | orderBy:orderProp"
+            class="thumbnail phone-listing">
+          <a href="#/restaurants.restaurants/{{restaurant.restaurant.R.res_id}}/{{restaurant.restaurant.name}}" class="thumb"><img ng-src="{{restaurant.restaurant.featured_image}}" alt="{{restaurant.restaurant.R.user_rating.rating_text}}"</a>
+          <a href="#/restaurants.restaurants/{{restaurant.restaurant.R.res_id}}/{{restaurant.restaurant.name}}">{{restaurant.restaurant.user_rating.rating_text}}</a>
+          <p>{{restaurant.restaurant.name}}</p>
+		  {{restaurant.photos[0].html_attributions}}
+	
         </li>
       </ul>
 
+        
+      </ul>
     </div>
-  
+  </div>
 </div>
 </div>
 
 </div>
+

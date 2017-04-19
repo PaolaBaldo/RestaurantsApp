@@ -12,24 +12,16 @@ restaurantReviewsApp.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
 	
-      when('/nonFictions', {
-        templateUrl: 'partials/nonFiction-list.html',
-        controller: 'NonFictionListCtrl'
+      when('/restaurantS', {
+        templateUrl: 'partials/restaurant-list.html',
+        controller: 'RestaurantListCtrl'
       }).
-      when('/restaurants.restaurants/:nonFictionId/:resName', {
-        templateUrl: 'partials/nonFiction-detail.html',
-        controller: 'NonFictionDetailCtrl'
-      }).
-	  when('/fictions', {
-        templateUrl: 'partials/fictions-list.html',
-        controller: 'FictionListCtrl'
-      }).
-	  when('/fictions/:fictionTitle/:fictionAuthor', {
-        templateUrl: 'partials/fiction-detail.html',
-        controller: 'FictionDetailCtrl'
+      when('/restaurants.restaurants/:restaurantId/:resName', {
+        templateUrl: 'partials/restaurant-detail.html',
+        controller: 'RestaurantDetailCtrl'
       }).
 	  when('/home/:search', {
-        templateUrl: 'partials/nonFiction-list.html',
+        templateUrl: 'partials/restaurant-list.html',
         controller: 'LocationCtrl'
       }).
 	  when('/home', {

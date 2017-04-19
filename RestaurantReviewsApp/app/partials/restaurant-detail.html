@@ -1,5 +1,3 @@
-
-
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-header">
         <a class="navbar-brand" href="#">Restaurants Reviews App</a>
@@ -16,7 +14,7 @@
     <div id="top-nav" class="navbar-collapse collapse">
 
         <ul class="nav navbar-nav">
-           
+         
         </ul>
 
 
@@ -60,33 +58,37 @@
 
 
     <div style="padding-top: 2em;">
-	 <div class="page-header">
-                <h1>Restaurants near: {{search | uppercase}}</h1>
+	
+            <div class="page-header">
+                <h1>{{resname}}</h1>
                <!-- <h2>Previews e Resenhas dos livros Best Sellers do New York Times .</h2>-->
             </div>
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-2">
       <!--Sidebar content-->
+	   
 
+
+     
+      
 
     </div>
     <div class="col-md-10">
       <!--Body content-->
 
-      <ul class="phones">
-        <li ng-repeat="nonFiction in restaurants.restaurants| filter:query | orderBy:orderProp"
+	  <ul class="phones">
+        <li ng-repeat="restaurant_ in restaurant.user_reviews| filter:query | orderBy:orderProp"
             class="thumbnail phone-listing">
-          <a href="#/restaurants.restaurants/{{nonFiction.restaurant.R.res_id}}/{{nonFiction.restaurant.name}}" class="thumb"><img ng-src="{{nonFiction.restaurant.featured_image}}" alt="{{nonFiction.restaurant.R.user_rating.rating_text}}"</a>
-          <a href="#/restaurants.restaurants/{{nonFiction.restaurant.R.res_id}}/{{nonFiction.restaurant.name}}">{{nonFiction.restaurant.user_rating.rating_text}}</a>
-          <p>{{nonFiction.restaurant.name}}</p>
-		  {{nonFiction.photos[0].html_attributions}}
+          <a href="#/restaurant.user_reviews/{{restaurant_.review.review_text}}" class="thumb"><img ng-src="{{restaurant_.review.user.profile_image}}" alt="{{restaurant_.review.user.profile_url}}"</a>
+          <a href="#/restaurant.user_reviews/{{restaurant_.review.review_text}}">{{restaurant_.review.user.name}}</a>
+          <p>{{restaurant_.review.review_text}}</p>
+		 
 	
         </li>
       </ul>
 
         
-      </ul>
     </div>
   </div>
 </div>
@@ -94,3 +96,8 @@
 
 </div>
 
+
+
+
+	
+	
