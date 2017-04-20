@@ -138,8 +138,11 @@
 
 </div>
 <script>
+
+
 $(document).ready(function(){
   $(document).on('click', '#procurar-submit', function() {
+	window.location.reload(false);
     window.location.href = 'http://localhost:8000/app/#/home/'+$('input[name="procurar"]').val();
   });
 });

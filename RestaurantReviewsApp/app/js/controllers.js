@@ -28,6 +28,7 @@ var restaurantReviewsControllers = angular.module('restaurantReviewsControllers'
   function ($scope, $http) {
     $http.get('https://developers.zomato.com/api/v2.1/search?lat='+$scope.restaurants.location_suggestions[0].latitude+'&lon='+$scope.restaurants.location_suggestions[0].longitude+'&apikey=97574fc00517865f7bc5ca22ac8a80c6').success(function(data) {
 	
+	
       $scope.restaurants = data;
     });
 

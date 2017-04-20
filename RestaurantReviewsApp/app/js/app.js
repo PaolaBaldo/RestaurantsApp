@@ -12,7 +12,7 @@ restaurantReviewsApp.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
 	
-      when('/restaurantS', {
+      when('/restaurants', {
         templateUrl: 'partials/restaurant-list.html',
         controller: 'RestaurantListCtrl'
       }).
