@@ -14,7 +14,16 @@ var restaurantReviewsControllers = angular.module('restaurantReviewsControllers'
       $scope.restaurants = data;
 	  $http.get('https://developers.zomato.com/api/v2.1/search?lat='+$scope.restaurants.location_suggestions[0].latitude+'&lon='+$scope.restaurants.location_suggestions[0].longitude+'&apikey=97574fc00517865f7bc5ca22ac8a80c6').success(function(data) {
       
-	  $scope.restaurants = data;
+	
+
+var ratedRestaurants = [];;
+
+angular.forEach(data.restaurants , function(value, key){
+	if(value.restaurant.user_rating.rating_text != 'Not rated'){
+		ratedRestaurants.push(value);	
+	}	
+})
+	  $scope.restaurants.restaurants = ratedRestaurants;
 	  
     });
 	  
@@ -24,18 +33,7 @@ var restaurantReviewsControllers = angular.module('restaurantReviewsControllers'
   }]);
 
 
-  restaurantReviewsControllers.controller('RestaurantListCtrl', ['$scope', '$http',
-  function ($scope, $http) {
-    $http.get('https://developers.zomato.com/api/v2.1/search?lat='+$scope.restaurants.location_suggestions[0].latitude+'&lon='+$scope.restaurants.location_suggestions[0].longitude+'&apikey=97574fc00517865f7bc5ca22ac8a80c6').success(function(data) {
-	
-	
-      $scope.restaurants = data;
-    });
-
-    $scope.orderProp = 'age';
-  }]);
   
- 
 
 
 restaurantReviewsControllers.controller('RestaurantDetailCtrl', ['$scope', '$sce', '$routeParams', '$http',
